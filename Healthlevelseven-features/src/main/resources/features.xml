@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) Red Hat, Inc.
+  ~ http://www.redhat.com
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<features name="healthcare-poc"
+          xmlns="http://karaf.apache.org/xmlns/features/v1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.0.0 http://karaf.apache.org/xmlns/features/v1.0.0">
+          
+  <repository>mvn:org.apache.camel.karaf/apache-camel/${camel.version}/xml/features</repository>
+  
+  <feature name='hl7-example-all' version='${project.version}'>
+    <feature version="${camel-version-range}">camel-core</feature>
+    <feature version="${camel-version-range}">camel-spring</feature>
+    <feature version="${camel-version-range}">camel-hl7</feature>
+    <feature version="${camel-version-range}">camel-netty4</feature>
+    <bundle>mvn:ca.uhn.hapi/hapi-osgi-base/${hapi.version}</bundle>
+    <bundle>mvn:${project.groupId}/hl7-ingress/${project.version}</bundle>
+    <bundle>mvn:${project.groupId}/hl7-consumer-1/${project.version}</bundle>
+    <bundle>mvn:${project.groupId}/hl7-transform-1/${project.version}</bundle>
+  </feature>
+  
+</features>
